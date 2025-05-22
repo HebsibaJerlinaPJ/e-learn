@@ -16,13 +16,13 @@
   display: flex;
   list-style: none;
   gap: 2.5rem;
-  justify-content: center; /* Center the links */
-  flex-grow: 1; /* Allow nav-links to take up available space */
+  justify-content: center;
+  flex-grow: 1;
 }
 
 .nav-links li a {
   text-decoration: none;
-  color: #6b7280; /* Lighter gray color for better visibility */
+  color: #6b7280;
   font-size: 1.2rem;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -46,4 +46,28 @@
 .login-btn:hover {
   background-color: #f97316;
   color: white;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem; /* Reduce padding */
+  }
+
+  .logo {
+    font-size: 1.5rem; /* Smaller logo */
+  }
+
+  .nav-links {
+    gap: 1rem; /* Reduce spacing between links */
+  }
+
+  .nav-links li a {
+    font-size: 1rem; /* Smaller font size */
+  }
+
+  .login-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
 }
