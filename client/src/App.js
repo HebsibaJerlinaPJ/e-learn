@@ -8,7 +8,7 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <div className="app">
+      <div className="App">
         <Navbar />
         <Routes>
           <Route path="/" element={<Hero />} />

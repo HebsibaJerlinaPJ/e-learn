@@ -5,14 +5,28 @@ import '../styles/Navbar.css';
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <div className="logo">LearnTech</div>
-      <ul className="nav-links">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="#">Courses</Link></li>
-        <li><Link to="#">Contact</Link></li>
-      </ul>
-      <button className="login-btn">Login</button>
+      <div className="navbar-container">
+        <Link to="/" className="navbar-logo">
+          E-LEARN
+        </Link>
+        <ul className="nav-menu">
+          <li className="nav-item">
+            <Link to="/" className="nav-links">
+              Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/courses" className="nav-links">
+              Courses
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/about" className="nav-links">
+              About
+            </Link>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };

@@ -3,26 +3,15 @@ import '../styles/Hero.css';
 
 const Hero = () => {
   return (
-    <section className="hero">
+    <div className="hero-container" style={{ 
+  background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/learning-illustration.png') center/cover no-repeat`
+}}>
       <div className="hero-content">
-        <h1 className="hero-title">
-          Master New Skills with Expert-Guided Learning
-        </h1>
-        <p className="hero-description">
-          Learn at your own pace from top instructors. Gain real-world skills that help you grow, excel, and lead anywhere, anytime.
-        </p>
-        <div className="hero-buttons">
-          <button className="btn-primary">Get Started</button>
-          <button className="btn-secondary">Browse All Courses</button>
-        </div>
+        <h1>Learn New Skills Online</h1>
+        <p>Find the perfect course for your career growth</p>
+        <button className="hero-btn">Browse Courses</button>
       </div>
-      <div className="hero-image-container">
-        <div className="satisfied-learners">
-          <span className="learner-count">10,000+</span> Satisfied Learners
-        </div>
-        <img src="/images/learning-illustration.png" alt="Learning Illustration" className="hero-image" />
-      </div>
-    </section>
+    </div>
   );
 };
 
