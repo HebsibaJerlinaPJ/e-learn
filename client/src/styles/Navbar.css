@@ -4,25 +4,30 @@
   justify-content: space-between;
   padding: 1rem 2rem;
   height: 70px;
+  background-color: #fff7ed; /* Bright warm background */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle elevation */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #f97316;
+  color: #f97316; /* Keep brand orange */
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 2.5rem;
+  gap: 5rem;
   justify-content: center;
   flex-grow: 1;
 }
 
 .nav-links li a {
   text-decoration: none;
-  color: #6b7280;
+  color: #374151; /* Darker gray for better contrast */
   font-size: 1.2rem;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -48,22 +53,22 @@
   color: white;
 }
 
-/* Responsive adjustments for smaller screens */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .navbar {
-    padding: 1rem; /* Reduce padding */
+    padding: 1rem;
   }
 
   .logo {
-    font-size: 1.5rem; /* Smaller logo */
+    font-size: 1.5rem;
   }
 
   .nav-links {
-    gap: 1rem; /* Reduce spacing between links */
+    gap: 1rem;
   }
 
   .nav-links li a {
-    font-size: 1rem; /* Smaller font size */
+    font-size: 1rem;
   }
 
   .login-btn {
