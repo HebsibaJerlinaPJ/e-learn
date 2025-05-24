@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Courses from './components/Courses';
 import './App.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             }
           />
           <Route path="/about" element={<About />} />
+          <Route path="/courses" element={<Courses />} />
         </Routes>
       </div>
     </Router>

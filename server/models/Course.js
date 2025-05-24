@@ -5,7 +5,6 @@ const courseSchema = new mongoose.Schema({
   description: { type: String, required: true },
   instructor: { type: String, required: true },
   duration: { type: String, default: 'Unknown' }, // Optional
-  price: { type: Number, default: 0 },            // Optional
   imageUrl: { type: String, default: '' },        // Optional
 });
 

@@ -30,10 +30,7 @@ router.post('/', async (req, res) => {
     description: req.body.description,
     instructor: req.body.instructor,
     duration: req.body.duration,
-    price: req.body.price,
     imageUrl: req.body.imageUrl,
-    rating: req.body.rating,
-    category: req.body.category
   });
 
   try {
