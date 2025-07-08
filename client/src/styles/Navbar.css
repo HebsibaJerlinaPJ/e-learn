@@ -3,9 +3,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 24px 100px;
-  background: rgba(255, 255, 255, 0.8); /* semi-transparent background */
-  backdrop-filter: blur(8px); /* glassmorphism effect */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* subtle shadow */
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
@@ -60,6 +60,8 @@
   color: white;
   box-shadow: 0 2px 8px rgba(255, 102, 0, 0.4);
 }
+
+/* Profile Icon Section */
 .navbar-right {
   display: flex;
   align-items: center;
@@ -72,37 +74,64 @@
 
 .avatar-icon {
   cursor: pointer;
-  background: orange;
+  background: #ff6600;
   color: white;
   border-radius: 50%;
   padding: 8px;
-  font-size: 18px;
+  font-size: 22px;
+  transition: box-shadow 0.2s ease;
+}
+
+.avatar-icon:hover {
+  box-shadow: 0 0 8px rgba(255, 102, 0, 0.6);
 }
 
 .profile-dropdown {
   position: absolute;
-  top: 45px;
+  top: 48px;
   right: 0;
-  background: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  border-radius: 8px;
-  padding: 10px;
-  min-width: 160px;
-  z-index: 100;
+  background: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 12px 16px;
+  min-width: 180px;
+  z-index: 999;
+  animation: dropdownFade 0.2s ease-in-out;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .profile-dropdown p {
-  margin: 0;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
 }
 
 .profile-dropdown a,
 .profile-dropdown button {
   display: block;
-  padding: 6px 0;
+  padding: 8px 0;
   color: #333;
   text-decoration: none;
   background: none;
   border: none;
   text-align: left;
   cursor: pointer;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.profile-dropdown a:hover,
+.profile-dropdown button:hover {
+  color: #ff6600;
 }

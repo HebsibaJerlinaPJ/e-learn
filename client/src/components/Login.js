@@ -15,11 +15,11 @@ function Login({ onLogin }) {
     e.preventDefault();
     try {
       const res = await axios.post("http://localhost:5000/api/auth/login", form);
-      const token = res.data.token;
+      const { token, name } = res.data;
       localStorage.setItem("token", token);
-      localStorage.setItem("userEmail", form.email);  // store email or fetch name if needed
-      onLogin(form.email);  // update UI
-      navigate("/");  // ✅ go back to homepage
+      localStorage.setItem("user", JSON.stringify({ name }));
+      onLogin(name);
+      navigate("/");
     } catch (err) {
       console.error("Login failed:", err);
     }

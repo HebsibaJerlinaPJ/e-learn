@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import "../styles/Navbar.css";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaUserCircle } from "react-icons/fa";
+import "../styles/Navbar.css";
+import ProfileDropdown from "./ProfileDropdown"; // ✅ Import
 
-function Navbar({ user }) {
-  const [showMenu, setShowMenu] = useState(false);
+function Navbar() {
+  const [user, setUser] = useState(null);
 
-  const handleLogout = () => {
-    localStorage.clear();
-    window.location.reload();
-  };
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem("user"));
+    if (userData?.name) setUser(userData.name);
+  }, []);
 
   return (
     <nav className="navbar">
@@ -21,20 +21,13 @@ function Navbar({ user }) {
         <li><Link to="/contact">Contact</Link></li>
       </ul>
 
-      {user ? (
-        <div className="profile-container">
-          <FaUserCircle className="profile-icon" onClick={() => setShowMenu(!showMenu)} />
-          {showMenu && (
-            <div className="profile-dropdown">
-              <p><strong>{user}</strong></p>
-              <Link to="/courses">My Courses</Link>
-              <button onClick={handleLogout}>Logout</button>
-            </div>
-          )}
-        </div>
-      ) : (
-        <Link to="/login" className="login-button">Login</Link>
-      )}
+      <div className="navbar-right">
+        {user ? (
+          <ProfileDropdown user={user} /> // ✅ Render separate dropdown
+        ) : (
+          <Link to="/login" className="login-button">Login</Link>
+        )}
+      </div>
     </nav>
   );
 }
