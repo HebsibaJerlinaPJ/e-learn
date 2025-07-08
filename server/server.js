@@ -2,7 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+
 const courseRoutes = require('./routes/courses');
+const authRoutes = require('./routes/auth'); // ✅ New
 
 dotenv.config();
 const app = express();
@@ -11,7 +13,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Connect to MongoDB
+// MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -21,6 +23,7 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // Routes
 app.use('/api/courses', courseRoutes);
+app.use('/api/auth', authRoutes); // ✅ New
 
 // Basic route for testing
 app.get('/', (req, res) => {
