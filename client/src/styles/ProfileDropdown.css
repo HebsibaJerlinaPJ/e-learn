@@ -7,25 +7,20 @@
 .avatar {
   width: 42px;
   height: 42px;
-  background-color: #ff6b00;
+  background-color: #ff6600;
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
+  font-weight: bold;
   transition: box-shadow 0.3s ease;
 }
 
 .avatar:hover {
   box-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
-}
-
-.avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
 }
 
 .dropdown-menu {
@@ -59,6 +54,18 @@
   margin-bottom: 12px;
 }
 
+.dropdown-menu p {
+  font-size: 14px;
+  color: #444;
+  margin: 4px 0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.dropdown-menu p:hover {
+  color: #ff6600;
+}
+
 .dropdown-menu button {
   background: none;
   border: none;
@@ -72,5 +79,5 @@
 }
 
 .dropdown-menu button:hover {
-  color: #ff6b00;
+  color: #ff6600;
 }

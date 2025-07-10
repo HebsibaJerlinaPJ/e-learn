@@ -1,26 +1,36 @@
 import React, { useState } from "react";
-import { FaUserCircle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import "../styles/Navbar.css";
+import "../styles/ProfileDropdown.css";
 
-function ProfileDropdown({ user }) {
-  const [open, setOpen] = useState(false);
+function ProfileDropdown({ user, setUser }) {
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+
+  const userData = JSON.parse(localStorage.getItem("user")) || {};
+  const { name, email } = userData;
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    navigate("/login");
-    window.location.reload();
+    setUser(null); // Reset user state in App.js
+    setIsOpen(false);
+    navigate("/");
   };
 
+  console.log("ProfileDropdown user prop:", user, "local data:", userData);
+
   return (
-    <div className="profile-wrapper">
-      <FaUserCircle className="avatar-icon" onClick={() => setOpen(!open)} />
-      {open && (
-        <div className="profile-dropdown">
-          <p><strong>{user}</strong></p>
-          <Link to="/courses">My Courses</Link>
+    <div className="profile-container">
+      <div className="avatar" onClick={() => setIsOpen(!isOpen)}>
+        {user ? user[0].toUpperCase() : "U"}
+      </div>
+      {isOpen && (
+        <div className="dropdown-menu">
+          <div className="username">{user || "Guest"}</div>
+          <p>Email: {email || "Not available"}</p>
+          <div>
+            <p onClick={() => { navigate("/courses"); setIsOpen(false); }}>Courses</p>
+          </div>
           <button onClick={handleLogout}>Logout</button>
         </div>
       )}

@@ -12,14 +12,17 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const email = localStorage.getItem("userEmail");
-    if (email) setUser(email);
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      const userData = JSON.parse(storedUser);
+      setUser(userData.name);
+    }
   }, []);
 
   return (
     <Router>
       <div className="App">
-        <Navbar user={user} />
+        <Navbar user={user} setUser={setUser} /> {/* Pass setUser to Navbar */}
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/about" element={<About />} />

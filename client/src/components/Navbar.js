@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
-import ProfileDropdown from "./ProfileDropdown"; // ✅ Import
+import ProfileDropdown from "./ProfileDropdown";
 
-function Navbar() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const userData = JSON.parse(localStorage.getItem("user"));
-    if (userData?.name) setUser(userData.name);
-  }, []);
+function Navbar({ user, setUser }) {
+  console.log("Navbar user prop:", user);
 
   return (
     <nav className="navbar">
@@ -20,10 +15,9 @@ function Navbar() {
         <li><Link to="/courses">Courses</Link></li>
         <li><Link to="/contact">Contact</Link></li>
       </ul>
-
       <div className="navbar-right">
         {user ? (
-          <ProfileDropdown user={user} /> // ✅ Render separate dropdown
+          <ProfileDropdown user={user} setUser={setUser} />
         ) : (
           <Link to="/login" className="login-button">Login</Link>
         )}
