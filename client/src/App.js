@@ -22,7 +22,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar user={user} setUser={setUser} /> {/* Pass setUser to Navbar */}
+        <Navbar user={user} setUser={setUser} />
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/about" element={<About />} />

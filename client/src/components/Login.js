@@ -17,14 +17,18 @@ function Login({ onLogin }) {
     e.preventDefault();
     try {
       const res = await axios.post("http://localhost:5000/api/auth/login", form);
-      const { token, name, email } = res.data;
+      const { token, name } = res.data;
+      const email = res.data.email || form.email; // Fallback to submitted email if server doesn't return it
+      if (!name) {
+        throw new Error("Name not returned from server");
+      }
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify({ name, email }));
       if (onLogin) onLogin(name);
       navigate("/");
     } catch (err) {
       console.error("Login failed:", err);
-      setError("Login failed. Please check your credentials.");
+      setError("Login failed. Please check your credentials or ensure the server returns required data.");
     }
   };
 

@@ -12,7 +12,7 @@ function ProfileDropdown({ user, setUser }) {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    setUser(null); // Reset user state in App.js
+    setUser(null);
     setIsOpen(false);
     navigate("/");
   };
